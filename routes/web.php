@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\userRegistration;
+use App\Http\Controllers\User\validationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::view('success','success')->name('success');
+Route::view('home','welcome')->name('home');
+Route::post('createAccount',[userRegistration::class,'handle_signup'])->name("createAccount");
+Route::post('validate',[validationController::class,'checkLogin_data_and_login'])->name("validate");
+//checkLogin_data_and_login
